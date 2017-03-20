@@ -127,19 +127,21 @@ void MainWindow::rcv_frame_update(int fr){
             float y = y_mid + by[i] + dy;
             item->setPos(x,y);
             item->show();//表示
+            item->update();//アイテム再描画要求
         }
     }
 
     // 画像アイテム位置情報更新
     // K右 H左 M下 U上　キーにより移動
-    QGraphicsItem *pix2 = (*m_pixs)[0];
+    QGraphicsItem *item = (*m_pixs)[0];
     m_pos_x += (m_vel_x1 + m_vel_x2);
     m_pos_y += (m_vel_y1 + m_vel_y2);
-    pix2->setPos(m_pos_x ,m_pos_y);
-    pix2->show();//表示
+    item->setPos(m_pos_x ,m_pos_y);
+    item->show();//表示
+    item->update();//アイテム再描画要求
 
     // シーン再描画要求
-    m_scene->update();
+    //m_scene->update();
 }
 
 bool MainWindow::eventFilter(QObject *, QEvent * event)
