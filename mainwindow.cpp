@@ -131,7 +131,7 @@ void MainWindow::rcv_frame_update(int fr){
     }
 
     // 画像アイテム位置情報更新
-    // K右 H左 M下　U上　キーにより移動
+    // K右 H左 M下 U上　キーにより移動
     QGraphicsItem *pix2 = (*m_pixs)[0];
     m_pos_x += (m_vel_x1 + m_vel_x2);
     m_pos_y += (m_vel_y1 + m_vel_y2);
